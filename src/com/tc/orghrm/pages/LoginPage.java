@@ -43,4 +43,8 @@ public class LoginPage extends PreDefinedActions {
 	public String getPageTitle() {
 		return driver.getTitle();
 	}
+	
+	public String getPageURL() {
+		return driver.getCurrentUrl();
+	}
 }
