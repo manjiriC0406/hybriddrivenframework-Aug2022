@@ -1,11 +1,14 @@
 package com.tc.orghrm.testscripts;
 
+import java.io.IOException;
+
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.tc.orghrm.base.PreDefinedActions;
 import com.tc.orghrm.pages.LoginPage;
+import com.tc.orghrm.utility.ExcelOperations;
 
 public class LoginTest {
 	
@@ -42,7 +45,13 @@ public class LoginTest {
 	}
 	
 	@DataProvider(name = "LoginDataProvider")
-	Object[][] getLoginData(){
+	Object[][] getLoginData() throws IOException{
+		Object[][] data = ExcelOperations.readExcelData(".//testdata//LoginData.xlsx", "Data");
+		return data;
+	}
+	
+	@DataProvider(name = "LoginDataProvider1")
+	Object[][] getLoginData1(){
 		Object[][] data = new Object[2][4];
 		data[0][0] = "https://mchourikar-trials77.orangehrmlive.com/";
 		data[0][1] = "Admin";
